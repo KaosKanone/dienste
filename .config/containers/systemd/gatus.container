@@ -1,0 +1,32 @@
+[Unit]
+Description=%N container
+
+[Container]
+ContainerName=%N
+Image=docker.io/twinproduction/gatus
+AutoUpdate=registry
+
+#HealthCmd=curl http://127.0.0.1:8080
+#UserNS=keep-id:uid=1000,gid=1000
+
+PublishPort=3001:8080
+
+Environment=GATUS_CONFIG_PATH=/config
+Volume=%h/containers/storage/%N/config:/config
+Volume=%h/containers/storage/%N/data:/data
+
+[Service]
+Restart=always
+TimeoutStartSec=300
+ExecStartPre=mkdir -p %h/containers/storage/%N/config
+ExecStartPre=mkdir -p %h/containers/storage/%N/data
+
+#ExecStartPre=wget -O %h/containers/storage/%N/config/config.yaml https://git.s8n.nl/geraveoyomama/quadlets/raw/branch/main/containers/storage/gatus/config/config.yaml
+#ExecStartPre=wget -O %h/containers/storage/%N/config/geekeasy.yaml https://git.s8n.nl/geraveoyomama/quadlets/raw/branch/main/containers/storage/gatus/config/geekeasy.yaml
+#ExecStartPre=wget -O %h/containers/storage/%N/config/iapc.yaml https://git.s8n.nl/geraveoyomama/quadlets/raw/branch/main/containers/storage/gatus/config/iapc.yaml
+#ExecStartPre=wget -O %h/containers/storage/%N/config/s8n.yaml https://git.s8n.nl/geraveoyomama/quadlets/raw/branch/main/containers/storage/gatus/config/s8n.yaml
+#ExecStartPre=wget -O %h/containers/storage/%N/config/hobbithole.yaml https://git.s8n.nl/geraveoyomama/quadlets/raw/branch/main/containers/storage/gatus/config/hobbithole.yaml
+ExecStartPre=-/usr/bin/bash -c "curl https://git.s8n.nl/geraveoyomama/quadlets/raw/branch/main/deployment/gatus-get-yaml.sh | bash"
+
+[Install]
+WantedBy=default.target
