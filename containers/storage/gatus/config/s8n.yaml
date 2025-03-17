@@ -1,0 +1,40 @@
+endpoints:
+  - name: Nextcloud
+    group: s8n
+    url: "https://cloud.s8n.nl/login"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 150"
+
+  - name: SearXNG
+    group: s8n
+    url: "https://search.s8n.nl/"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 150"
+
+  - name: giftthing
+    group: s8n
+    url: "https://gifts.s8n.nl/"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 150"
+
+  - name: jellyfin
+    group: s8n
+    url: "https://jellyfin.s8n.nl/"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 150"
+
+  - name: gatus
+    group: s8n
+    url: "https://status.s8n.nl/"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 150"

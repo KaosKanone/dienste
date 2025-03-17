@@ -1,0 +1,69 @@
+endpoints:
+  - name: Nextcloud
+    group: iapc
+    url: "https://cloud.iapc.utwente.nl/login"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 250"
+      - "[CERTIFICATE_EXPIRATION] > 336h"
+
+  - name: Dolibarr
+    group: iapc
+    url: "https://dolibarr.iapc.utwente.nl/"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 150"
+      - "[CERTIFICATE_EXPIRATION] > 336h"
+
+
+  - name: Element
+    group: iapc
+    url: "https://chat.iapc.utwente.nl/"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 150"
+      - "[CERTIFICATE_EXPIRATION] > 336h"
+
+
+  - name: Gitlab
+    group: iapc
+    url: "https://git.iapc.utwente.nl/"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 150"
+      - "[CERTIFICATE_EXPIRATION] > 336h"
+
+
+  - name: isdewinkelopen.nl
+    group: iapc
+    url: "https://isdewinkelopen.nl/"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 150"
+      - "[CERTIFICATE_EXPIRATION] > 336h"
+
+
+  - name: Colo
+    group: iapc
+    url: "https://doc2.iapc.utwente.nl/"
+    interval: 60s
+    conditions:
+      #- "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 150"
+      - "[CERTIFICATE_EXPIRATION] > 336h"
+
+
+  - name: Room
+    group: iapc
+    url: "https://mokey.iapc.utwente.nl/"
+    interval: 60s
+    conditions:
+      #- "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 150"
+      - "[CERTIFICATE_EXPIRATION] > 336h"
+

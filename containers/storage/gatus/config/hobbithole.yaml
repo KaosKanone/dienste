@@ -1,0 +1,25 @@
+endpoints:
+  - name: Nextcloud
+    group: hobbithole
+    url: "https://cloud.hobbithole.nl/login"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 250"
+
+  - name: FoundryVTT
+    group: hobbithole
+    url: "https://vtt.hobbithole.nl/"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 150"
+
+
+  - name: gatus
+    group: hobbithole
+    url: "https://status.hobbithole.nl/"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 150"

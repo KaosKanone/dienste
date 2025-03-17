@@ -1,0 +1,8 @@
+storage:
+  type: sqlite
+  path: /data/data.db
+
+connectivity:
+  checker:
+    target: 1.1.1.1:53
+    interval: 60s

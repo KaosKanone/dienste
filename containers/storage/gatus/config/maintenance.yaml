@@ -1,0 +1,5 @@
+maintenance:
+  start: 20:00
+  duration: 3h
+  timezone: "Europe/Amsterdam"
+  every: [Thursday]

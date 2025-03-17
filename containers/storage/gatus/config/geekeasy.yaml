@@ -1,0 +1,32 @@
+endpoints:
+  - name: Nextcloud
+    group: geekeasy
+    url: "https://cloud.geekeasy.de/login"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 250"
+
+#  - name: SearXNG
+#    group: geekeasy
+#    url: "https://search.geekeasy.de/"
+#    interval: 60s
+#    conditions:
+#      - "[STATUS] == 200"
+#      - "[RESPONSE_TIME] < 150"
+
+  - name: AudioBookShelf
+    group: geekeasy
+    url: "https://abs.geekeasy.de/"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 200"
+
+  - name: gatus
+    group: geekeasy
+    url: "https://status.geekeasy.de/"
+    interval: 60s
+    conditions:
+      - "[STATUS] == 200"
+      - "[RESPONSE_TIME] < 200"
